@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url(img/churrasco.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            border: 0;
+            display: flex;
+            font-family: Candara;
+            font-size: 15px;
+
+        }
+        
+
+        section {
+            background-color: rgba(53, 11, 11, 0.623);
+            margin-left: 50%;
+            border: 20px solid;
+            padding-left: 4px;
+            width: 100%;
+            height: 90%;
+            border-radius: 30px;
+
+        }
+
+        div.calcular {
+            display: grid;
+            justify-content: center;
+        }
+
+        img {
+            height: 100px;
+        }
+
+        h1,
+        h2 {
+            color: antiquewhite;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        input {
+            font-size: 30px;
+            width: 150px;
+            color: coral;
+        }
+
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+
+
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+
+        }
+
+        label {
+            color: burlywood;
+            font-size: 25px;
+        }
+
+        button {
+            background-color: black;
+            color: burlywood;
+            margin-top: 30px;
+            font-weight: 700;
+            font-size: 20px;
+            border: none;
+            height: 50px;
+            width: 150px;
+            border-radius: 15px;
+        }
+
+        button:hover {
+            color: transparent;
+            background-image: url(img/fire.gif);
+            background-size: 100px;
+        }
+        div.tabela{
+            background: #e4131386;
+           border-collapse: 3px solid #fff;
+        }
+        div.resultado{
+            color: bisque;
+            font-size: 25px;
+        }
+        footer {
+            background: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100;
+    margin-top: 60%;
+        }
+    </style>
+    <title>M.A.P.A</title>
+</head>
+
+<body>
+    <section>
+        <h1>MAPA</h1>
+        <h2>Calculadora de churrasco</h2>
+        <div class="calcular">
+            <label for="">Homens:</label>
+            <input type="number" name="homens" id="homens">
+            <label for="">Mulheres:</label>
+            <input type="number" name="mulheres" id="mulheres">
+            <label for="">Crianças:</label>
+            <input type="number" name="criancas" id="criancas">
+
+            <button type="button" onclick="calcular()">Calcular</button>
+
+        </div>
+        <div class="tabela">
+            <h2>Quantidade de itens a serem comprados:</h2>
+
+            <div id="resultado" class="resultado">
+
+            </div>            
+        </div>
+        <footer>Francilene S. Pires | MAPA-Unicesumar</footer>
+    </section>
+    
+    
+    <script>
+        function calcular() {
+            const homens = parseInt(document.getElementById('homens').value);
+            const mulheres = parseInt(document.getElementById('mulheres').value);
+            const criancas = parseInt(document.getElementById('criancas').value);
+
+            const carneBovina = (homens * 500) + (mulheres * 300) + (criancas * 200);
+            const frango = (homens * 200) + (mulheres * 200) + (criancas * 100);
+            const linguica = (homens * 200) + (mulheres * 200) + (criancas * 200);
+            const refrigerante = (homens * 300) + (mulheres * 400) + (criancas * 200);
+            const cerveja = (homens * 800) + (mulheres * 500);
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+                <p>Carne bovina: ${carneBovina}g</p>
+                <p>Frango: ${frango}g</p>
+                <p>Linguiça: ${linguica}g</p>
+                <p>Refrigerante: ${refrigerante}ml</p>
+                <p>Cerveja: ${cerveja}ml</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
